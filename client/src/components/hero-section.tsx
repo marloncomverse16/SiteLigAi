@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { TrendingUp, Zap } from "lucide-react";
+import { TrendingUp, MessageCircle, Users, Zap, Bot } from "lucide-react";
 
 export default function HeroSection() {
   const [formData, setFormData] = useState({
@@ -52,15 +52,15 @@ export default function HeroSection() {
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
           <div className="mb-12 lg:mb-0 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--ligai-dark)] leading-tight mb-6">
-              Visão completa de sua{" "}
+              Sistema de{" "}
               <span className="text-gradient-orange-yellow">
-                Gestão Empresarial
+                Vendas Automatizadas
               </span>{" "}
               com IA
             </h1>
             <p className="text-xl text-[var(--ligai-gray)] leading-relaxed mb-8">
-              Com o LigAI, você tem controle total. Acompanhe em tempo real e
-              tome decisões inteligentes sempre que necessário.
+              O LigAI - Vendas atende até 3.000 clientes diariamente de forma automatizada. 
+              Conecte seu WhatsApp, automatize prospecção e deixe nossa IA finalizar as vendas para você.
             </p>
 
             {/* Lead Form */}
@@ -122,26 +122,35 @@ export default function HeroSection() {
 
           <div className="relative animate-slide-up">
             <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800"
-              alt="Modern office with AI technology and business analytics"
+              src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800"
+              alt="WhatsApp automation and AI sales system"
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
 
             {/* Floating elements */}
             <div className="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 animate-scale-in">
               <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-[var(--ligai-green)] rounded-full animate-pulse"></div>
+                <MessageCircle className="text-[var(--ligai-green)]" size={20} />
                 <span className="text-sm font-semibold text-[var(--ligai-dark)]">
-                  Sistema Online
+                  WhatsApp Conectado
                 </span>
               </div>
             </div>
 
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 animate-scale-in">
               <div className="flex items-center space-x-3">
-                <TrendingUp className="text-[var(--ligai-orange)]" size={20} />
+                <Bot className="text-[var(--ligai-orange)]" size={20} />
                 <span className="text-sm font-semibold text-[var(--ligai-dark)]">
-                  Análise em Tempo Real
+                  Vendedor IA Ativo
+                </span>
+              </div>
+            </div>
+
+            <div className="absolute top-1/2 -right-8 bg-white p-4 rounded-xl shadow-lg border border-gray-100 animate-scale-in">
+              <div className="flex items-center space-x-3">
+                <Users className="text-[var(--ligai-teal)]" size={20} />
+                <span className="text-sm font-semibold text-[var(--ligai-dark)]">
+                  3.000 Clientes/Dia
                 </span>
               </div>
             </div>

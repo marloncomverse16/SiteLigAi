@@ -2,24 +2,24 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Maria Carvalho",
-    position: "CEO, TechSolutions",
-    initials: "MC",
-    content: "O LigAI revolucionou nossa gestão. Conseguimos reduzir custos em 30% e aumentar nossa produtividade significativamente.",
+    name: "Carlos Mendes",
+    position: "Diretor Comercial, AutoPeças Pro",
+    initials: "CM",
+    content: "Em 30 dias o LigAI-Vendas aumentou nossas vendas em 180%. O Vendedor IA atende melhor que nossa equipe anterior e trabalha 24h!",
     rating: 5
   },
   {
-    name: "João Silva",
-    position: "Diretor, InnovaGroup",
-    initials: "JS",
-    content: "A automação inteligente do LigAI nos permitiu focar no que realmente importa: crescer nosso negócio.",
+    name: "Patricia Lima",
+    position: "CEO, Fashion Store",
+    initials: "PL",
+    content: "Incrível! O sistema prospeita clientes automaticamente e nossa IA fecha vendas enquanto dormimos. Faturamento triplicou em 2 meses.",
     rating: 5
   },
   {
-    name: "Ana Santos",
-    position: "CFO, LogisCorp",
-    initials: "AS",
-    content: "Os relatórios automáticos e insights do LigAI transformaram nossa tomada de decisão. Recomendo!",
+    name: "Roberto Souza",
+    position: "Gerente, Imóveis Prime",
+    initials: "RS",
+    content: "O LigAI substitui uma equipe de 10 vendedores. Atende 3.000 clientes por dia e nossos custos operacionais caíram 70%.",
     rating: 5
   }
 ];
@@ -30,10 +30,10 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ligai-dark)] mb-4">
-            O que nossos clientes dizem
+            Resultados Reais de Quem Usa LigAI - Vendas
           </h2>
           <p className="text-xl text-[var(--ligai-gray)] max-w-3xl mx-auto">
-            Empresas de todos os tamanhos confiam no LigAI para transformar sua gestão
+            Empresas aumentaram vendas em até 300% e reduziram custos operacionais drasticamente
           </p>
         </div>
 

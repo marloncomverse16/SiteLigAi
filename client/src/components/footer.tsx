@@ -1,4 +1,5 @@
-import { Brain, Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
+import logoPath from "@assets/Captura de tela 2025-04-28 170154_1753808208588.png";
 
 export default function Footer() {
   return (
@@ -8,14 +9,15 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-6">
-              <div className="w-10 h-10 gradient-orange-yellow rounded-lg flex items-center justify-center">
-                <Brain className="text-white" size={24} />
-              </div>
-              <span className="ml-3 text-2xl font-bold text-white">LigAI</span>
+              <img 
+                src={logoPath} 
+                alt="LigAI - Vendas" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Transforme sua gestão empresarial com inteligência artificial. 
-              Automatize processos, otimize recursos e tome decisões mais inteligentes.
+              Sistema de vendas automatizadas com IA que atende até 3.000 clientes por dia. 
+              Conecte seu WhatsApp, automatize prospecção e deixe nossa IA vender para você.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -54,7 +56,7 @@ export default function Footer() {
                   href="#" 
                   className="hover:text-[var(--ligai-orange)] transition-colors duration-300"
                 >
-                  Business Intelligence
+                  Integração WhatsApp
                 </a>
               </li>
               <li>
@@ -62,7 +64,7 @@ export default function Footer() {
                   href="#" 
                   className="hover:text-[var(--ligai-orange)] transition-colors duration-300"
                 >
-                  Automação de Vendas
+                  Vendedor IA
                 </a>
               </li>
               <li>
@@ -70,7 +72,7 @@ export default function Footer() {
                   href="#" 
                   className="hover:text-[var(--ligai-orange)] transition-colors duration-300"
                 >
-                  Gestão Financeira
+                  Prospecção Automática
                 </a>
               </li>
               <li>
@@ -78,7 +80,7 @@ export default function Footer() {
                   href="#" 
                   className="hover:text-[var(--ligai-orange)] transition-colors duration-300"
                 >
-                  CRM Inteligente
+                  Relatórios de Vendas
                 </a>
               </li>
               <li>
@@ -86,7 +88,7 @@ export default function Footer() {
                   href="#" 
                   className="hover:text-[var(--ligai-orange)] transition-colors duration-300"
                 >
-                  Relatórios Automáticos
+                  Chat em Tempo Real
                 </a>
               </li>
             </ul>
@@ -143,7 +145,7 @@ export default function Footer() {
         <div className="border-t border-[var(--ligai-gray)] mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 mb-4 md:mb-0">
-              © 2024 LigAI. Todos os direitos reservados.
+              © 2024 LigAI - Vendas. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 text-gray-300">
               <a 

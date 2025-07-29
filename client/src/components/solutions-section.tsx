@@ -1,47 +1,47 @@
-import { Brain, ShoppingCart, Settings } from "lucide-react";
+import { MessageCircle, Bot, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 const solutions = [
   {
-    icon: Brain,
-    title: "Business Intelligence",
-    subtitle: "Transforme dados em decisões inteligentes",
-    description: "O LigAI coleta e analisa dados de toda sua operação, fornecendo insights em tempo real para tomada de decisão estratégica. Com dashboards personalizáveis e relatórios automáticos.",
+    icon: MessageCircle,
+    title: "Integração WhatsApp",
+    subtitle: "Conecte e automatize seu WhatsApp",
+    description: "Conecte seu WhatsApp Cloud ou via QR Code. A integração Cloud é recomendada pois evita bloqueios do WhatsApp e garante estabilidade total para suas operações de vendas.",
     features: [
-      "Dashboards em tempo real personalizáveis",
-      "Análise preditiva com machine learning",
-      "Relatórios automatizados e alertas inteligentes"
+      "WhatsApp Cloud API - sem bloqueios",
+      "Conexão via QR Code para testes",
+      "Estabilidade garantida 24/7"
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
-    alt: "Business analytics dashboard with charts and graphs"
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
+    alt: "WhatsApp integration and automation interface"
   },
   {
-    icon: ShoppingCart,
-    title: "Automação de Vendas",
-    subtitle: "Acelere seu processo de vendas com IA",
-    description: "Automatize follow-ups, qualifique leads e aumente conversões. O LigAI identifica oportunidades e otimiza sua estratégia de vendas automaticamente.",
+    icon: Bot,
+    title: "Vendedor IA Inteligente",
+    subtitle: "IA que vende enquanto você dorme",
+    description: "Nosso Vendedor IA é treinado especificamente sobre sua empresa e produtos. Ele atende clientes, responde dúvidas e finaliza vendas automaticamente, trabalhando 24 horas por dia.",
     features: [
-      "Lead scoring automático e inteligente",
-      "Sequências de follow-up personalizadas",
-      "Previsão de vendas com alta precisão"
+      "Atendimento personalizado 24/7",
+      "Treinado com dados da sua empresa",
+      "Finaliza vendas automaticamente"
     ],
-    image: "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
-    alt: "Customer service technology interface with AI chatbot",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
+    alt: "AI customer service and sales automation",
     reverse: true
   },
   {
-    icon: Settings,
-    title: "Gestão de Recursos",
-    subtitle: "Otimize recursos e reduza custos",
-    description: "Gerencie equipes, projetos e recursos com eficiência máxima. O LigAI aloca automaticamente recursos baseado em prioridades e disponibilidade.",
+    icon: BarChart3,
+    title: "Prospecção e Relatórios",
+    subtitle: "Encontre clientes e acompanhe resultados",
+    description: "Prospecção automática por segmento e localização, com dados completos dos clientes. Relatórios detalhados de vendas, custos, faturamento e métricas para otimizar sua estratégia.",
     features: [
-      "Alocação inteligente de recursos humanos",
-      "Controle de custos em tempo real",
-      "Otimização automática de cronogramas"
+      "Prospecção automática segmentada",
+      "Dados completos: telefone, email, endereço",
+      "Relatórios de vendas e faturamento"
     ],
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
-    alt: "Modern office technology with automation systems"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
+    alt: "Business analytics and customer prospecting dashboard"
   }
 ];
 
@@ -58,10 +58,10 @@ export default function SolutionsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ligai-dark)] mb-4">
-            Mais de 10 Módulos Integrados
+            3 Pilares da Automação de Vendas
           </h2>
           <p className="text-xl text-[var(--ligai-gray)] max-w-3xl mx-auto">
-            Controle todos os aspectos da sua empresa, desde vendas até recursos humanos, com facilidade e precisão.
+            Sistema completo que conecta, prospeita, atende e vende automaticamente para até 3.000 clientes por dia.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export default function SolutionsSection() {
                   onClick={() => scrollToSection("contato")}
                   className="gradient-orange-yellow text-white px-8 py-3 rounded-lg font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300"
                 >
-                  {index === 0 ? "Teste Agora" : index === 1 ? "Conhecer Módulo" : "Saiba Mais"}
+                  {index === 0 ? "Conectar WhatsApp" : index === 1 ? "Ativar Vendedor IA" : "Ver Demonstração"}
                 </Button>
               </div>
               <div className={`relative animate-slide-up ${solution.reverse ? 'lg:order-1' : ''}`}>

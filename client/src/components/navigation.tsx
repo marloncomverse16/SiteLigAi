@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Brain, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoPath from "@assets/Captura de tela 2025-04-28 170154_1753808208588.png";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,12 +36,11 @@ export default function Navigation() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="flex items-center">
-                <div className="w-10 h-10 gradient-orange-yellow rounded-lg flex items-center justify-center">
-                  <Brain className="text-white" size={24} />
-                </div>
-                <span className="ml-3 text-2xl font-bold text-[var(--ligai-dark)]">
-                  LigAI
-                </span>
+                <img 
+                  src={logoPath} 
+                  alt="LigAI - Vendas" 
+                  className="h-10 w-auto"
+                />
               </div>
             </div>
           </div>
@@ -58,13 +58,13 @@ export default function Navigation() {
                 onClick={() => scrollToSection("recursos")}
                 className="text-[var(--ligai-gray)] hover:text-[var(--ligai-orange)] transition-colors duration-300 px-3 py-2 text-sm font-medium"
               >
-                Recursos
+                Sistema
               </button>
               <button
                 onClick={() => scrollToSection("solucoes")}
                 className="text-[var(--ligai-gray)] hover:text-[var(--ligai-orange)] transition-colors duration-300 px-3 py-2 text-sm font-medium"
               >
-                Soluções
+                Automação
               </button>
               <button
                 onClick={() => scrollToSection("depoimentos")}
@@ -118,13 +118,13 @@ export default function Navigation() {
               onClick={() => scrollToSection("recursos")}
               className="block text-[var(--ligai-gray)] hover:text-[var(--ligai-orange)] transition-colors duration-300 px-3 py-2 text-sm font-medium w-full text-left"
             >
-              Recursos
+              Sistema
             </button>
             <button
               onClick={() => scrollToSection("solucoes")}
               className="block text-[var(--ligai-gray)] hover:text-[var(--ligai-orange)] transition-colors duration-300 px-3 py-2 text-sm font-medium w-full text-left"
             >
-              Soluções
+              Automação
             </button>
             <button
               onClick={() => scrollToSection("depoimentos")}

@@ -1,25 +1,25 @@
-import { Database, TrendingUp, Lightbulb, Shield } from "lucide-react";
+import { Target, Clock, DollarSign, TrendingUp } from "lucide-react";
 
 const benefits = [
   {
-    icon: Database,
-    title: "Colete informações estratégicas",
-    description: "Ao coletar informações dos seus processos, você estará mais preparado para gerenciar sua empresa."
+    icon: Target,
+    title: "Prospecte clientes automaticamente",
+    description: "Sistema encontra e qualifica leads por segmento e localização, entregando dados completos para sua estratégia de vendas."
+  },
+  {
+    icon: Clock,
+    title: "Venda 24 horas por dia",
+    description: "Vendedor IA trabalha sem parar, atendendo até 3.000 clientes diariamente enquanto você foca no crescimento do negócio."
+  },
+  {
+    icon: DollarSign,
+    title: "Aumente o faturamento",
+    description: "Finalize mais vendas com IA treinada, reduza custos operacionais e escale suas vendas sem contratar mais vendedores."
   },
   {
     icon: TrendingUp,
-    title: "Gerencie com eficiência",
-    description: "Processos bem gerenciados reduzem custos, aumentam segurança e impulsionam a produtividade."
-  },
-  {
-    icon: Lightbulb,
-    title: "Tome decisões assertivas",
-    description: "Com informações precisas e análise objetiva, você pode tomar as melhores decisões para sua empresa."
-  },
-  {
-    icon: Shield,
-    title: "Evite perdas financeiras",
-    description: "Reduza custos, aumente segurança e proteja seus dados de forma rápida e inteligente."
+    title: "Monitore resultados em tempo real",
+    description: "Relatórios completos de vendas, leads, custos e faturamento para tomar decisões baseadas em dados reais."
   }
 ];
 
@@ -29,8 +29,11 @@ export default function BenefitsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ligai-dark)] mb-4">
-            O LigAI é a solução perfeita para empresas que buscam excelência na gestão
+            O LigAI - Vendas é a solução perfeita para empresas que querem vender mais
           </h2>
+          <p className="text-xl text-[var(--ligai-gray)] max-w-3xl mx-auto">
+            Transforme sua estratégia de vendas com automação inteligente e resultados comprovados
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

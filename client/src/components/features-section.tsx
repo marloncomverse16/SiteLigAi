@@ -1,42 +1,42 @@
 import { 
-  PieChart, 
+  MessageCircle, 
   Bot, 
-  DollarSign, 
+  Target, 
   Users, 
   FileText, 
-  Shield 
+  Eye 
 } from "lucide-react";
 
 const features = [
   {
-    icon: PieChart,
-    title: "Analytics Inteligente",
-    description: "Análise avançada de dados com IA para insights precisos sobre sua operação empresarial."
+    icon: MessageCircle,
+    title: "Integração WhatsApp",
+    description: "Conecte WhatsApp Cloud ou QR Code. Integração Cloud evita bloqueios e garante estabilidade total."
+  },
+  {
+    icon: Target,
+    title: "Prospecção Automática",
+    description: "Captação automática de clientes por segmento e localização com dados completos: telefone, email, endereço."
   },
   {
     icon: Bot,
-    title: "Automação de Processos",
-    description: "Automatize tarefas repetitivas e optimize fluxos de trabalho com nossa IA avançada."
-  },
-  {
-    icon: DollarSign,
-    title: "Gestão Financeira",
-    description: "Controle financeiro completo com previsões inteligentes e alertas automáticos."
+    title: "Vendedor IA Inteligente",
+    description: "IA treinada sobre sua empresa e produtos que atende clientes e finaliza vendas automaticamente."
   },
   {
     icon: Users,
-    title: "CRM Inteligente",
-    description: "Gestão de relacionamento com clientes potencializada por inteligência artificial."
+    title: "Atendimento em Massa",
+    description: "Capacidade para atender até 3.000 clientes diariamente com mensagens personalizadas e automáticas."
   },
   {
     icon: FileText,
-    title: "Relatórios Automáticos",
-    description: "Relatórios detalhados gerados automaticamente com insights acionáveis."
+    title: "Relatórios Completos",
+    description: "Métricas de vendas, leads, custos, faturamento e estimativas com análises detalhadas de performance."
   },
   {
-    icon: Shield,
-    title: "Segurança Avançada",
-    description: "Proteção de dados empresariais com criptografia e monitoramento contínuo."
+    icon: Eye,
+    title: "Monitoramento em Tempo Real",
+    description: "Chat integrado para acompanhar conversas e identificar clientes que precisam de atenção humana."
   }
 ];
 
@@ -46,10 +46,10 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ligai-dark)] mb-4">
-            Recursos Principais do LigAI
+            Recursos Principais do LigAI - Vendas
           </h2>
           <p className="text-xl text-[var(--ligai-gray)] max-w-3xl mx-auto">
-            Gerencie todos os aspectos da sua empresa com inteligência artificial avançada
+            Sistema completo de vendas automatizadas que trabalha 24/7 para fazer sua empresa vender mais
           </p>
         </div>
 
