@@ -70,7 +70,7 @@ The application defines three main entities in the shared schema:
 
 ### Data Retrieval
 - Admin endpoints available at `/api/leads` and `/api/contacts` for retrieving stored data
-- Currently uses in-memory storage with planned database integration
+- Uses PostgreSQL database with Drizzle ORM for persistent data storage
 
 ## External Dependencies
 
@@ -134,3 +134,9 @@ The application is designed for easy deployment on platforms like Replit, with b
 - Showcases ability to handle 3,000 customers daily
 - Positions as complete sales automation solution
 - Strong ROI and cost-benefit messaging throughout
+
+### Database Integration (January 2025)
+- **PostgreSQL Database**: Migrated from in-memory storage to persistent PostgreSQL database
+- **Database Storage**: Implemented DatabaseStorage class using Drizzle ORM
+- **Schema Migration**: Successfully pushed schema to database with `npm run db:push`
+- **Persistent Data**: All leads and contacts now stored persistently in database
