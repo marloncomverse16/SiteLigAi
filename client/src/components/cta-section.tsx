@@ -17,19 +17,12 @@ export default function CtaSection() {
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
           Não perca mais vendas! Configure o LigAI - Vendas hoje e tenha um vendedor IA trabalhando 24h para você.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex justify-center">
           <Button
             onClick={() => scrollToSection("inicio")}
             className="bg-white text-[var(--ligai-orange)] px-8 py-4 rounded-lg font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             Começar Vendas Automáticas
-          </Button>
-          <Button
-            onClick={() => scrollToSection("contato")}
-            variant="outline"
-            className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-[var(--ligai-orange)] transition-all duration-300"
-          >
-            Ver Demonstração ao Vivo
           </Button>
         </div>
       </div>
