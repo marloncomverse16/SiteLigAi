@@ -56,6 +56,14 @@
   --ring: hsl(24, 100%, 60%);
 }
 
+/* Logo styles to remove white background */
+img[alt="LigAI - Vendas"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 @layer base {
   * {
     @apply border-border;

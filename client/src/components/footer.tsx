@@ -13,6 +13,11 @@ export default function Footer() {
                 src={logoPath} 
                 alt="LigAI - Vendas" 
                 className="h-12 w-auto"
+                style={{ 
+                  backgroundColor: 'transparent',
+                  filter: 'drop-shadow(0 0 0 transparent)',
+                  WebkitFilter: 'drop-shadow(0 0 0 transparent)'
+                }}
               />
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">

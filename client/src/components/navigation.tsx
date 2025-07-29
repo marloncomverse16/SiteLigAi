@@ -40,6 +40,11 @@ export default function Navigation() {
                   src={logoPath} 
                   alt="LigAI - Vendas" 
                   className="h-10 w-auto"
+                  style={{ 
+                    backgroundColor: 'transparent',
+                    filter: 'drop-shadow(0 0 0 transparent)',
+                    WebkitFilter: 'drop-shadow(0 0 0 transparent)'
+                  }}
                 />
               </div>
             </div>
