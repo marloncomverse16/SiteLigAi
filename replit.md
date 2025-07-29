@@ -6,7 +6,7 @@ LigAI - Vendas é um sistema revolucionário de vendas automatizadas que utiliza
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+Preferred communication style: Simple, everyday language in Portuguese.
 
 ## System Architecture
 

@@ -77,7 +77,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--ligai-dark)]">Telefone</h4>
-                  <p className="text-[var(--ligai-gray)]">(11) 3456-7890</p>
+                  <p className="text-[var(--ligai-gray)]">(43) 99661-9946</p>
                 </div>
               </div>
 
@@ -97,7 +97,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--ligai-dark)]">Endereço</h4>
-                  <p className="text-[var(--ligai-gray)]">São Paulo, SP - Brasil</p>
+                  <p className="text-[var(--ligai-gray)]">Londrina, PR - Brasil</p>
                 </div>
               </div>
             </div>
