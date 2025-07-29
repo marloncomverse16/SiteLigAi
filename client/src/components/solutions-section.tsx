@@ -13,8 +13,8 @@ const solutions = [
       "Conexão via QR Code para testes",
       "Estabilidade garantida 24/7"
     ],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
-    alt: "WhatsApp integration and automation interface"
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
+    alt: "Modern smartphone with WhatsApp automation interface"
   },
   {
     icon: Bot,
@@ -26,8 +26,8 @@ const solutions = [
       "Treinado com dados da sua empresa",
       "Finaliza vendas automaticamente"
     ],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
-    alt: "AI customer service and sales automation",
+    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
+    alt: "AI robot and automation technology interface",
     reverse: true
   },
   {
@@ -40,8 +40,8 @@ const solutions = [
       "Dados completos: telefone, email, endereço",
       "Relatórios de vendas e faturamento"
     ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
-    alt: "Business analytics and customer prospecting dashboard"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800",
+    alt: "Advanced analytics dashboard with sales data visualization"
   }
 ];
 
