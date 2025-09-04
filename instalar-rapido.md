@@ -26,16 +26,18 @@ chmod +x instalar-ligai.sh
 ## ⚡ Como Usar
 
 1. **Execute um dos comandos acima**
-2. **Digite seu número do WhatsApp quando solicitado**
+2. **Escolha se quer configurar WhatsApp agora ou depois**
 3. **Aguarde a instalação finalizar**
-4. **Execute: `npm run dev`**
+4. **Execute: `cd SiteLigAi && npm run dev`**
 5. **Acesse: http://localhost:5000**
 
-## 📱 Teste do WhatsApp
+## 📱 Configure WhatsApp
 
-- Clique no botão **"Teste Grátis"** no site
-- Deve abrir automaticamente o WhatsApp
-- Configure outros números em: http://localhost:5000/admin
+**IMPORTANTE:** Para o botão "Teste Grátis" funcionar:
+
+1. **Acesse: http://localhost:5000/admin**
+2. **Configure seu número do WhatsApp**
+3. **Teste clicando em "Teste Grátis" no site**
 
 ## 🔧 Comandos Úteis
 

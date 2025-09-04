@@ -125,45 +125,62 @@ setup_database() {
     fi
 }
 
-# Configurar WhatsApp
+# Configurar WhatsApp (opcional - pode ser feito via admin)
 configure_whatsapp() {
     log "📱 Configuração do WhatsApp"
-    echo -e "${YELLOW}Configure o número que receberá as conversas dos leads${NC}"
+    echo -e "${YELLOW}Você pode configurar o WhatsApp agora ou depois via painel admin${NC}"
+    echo -e "${CYAN}Painel admin estará disponível em: http://localhost:5000/admin${NC}"
     
-    while true; do
-        echo ""
-        read -p "📞 Digite o número do WhatsApp (ex: 11999887766): " whatsapp_number
-        
-        # Validação simples do número
-        if [[ $whatsapp_number =~ ^[0-9]{10,11}$ ]]; then
-            # Adicionar código do Brasil se necessário
-            if [[ ${#whatsapp_number} == 11 ]]; then
-                whatsapp_number="55$whatsapp_number"
-            fi
-            
-            # Formatar para exibição
-            formatted_number="+${whatsapp_number:0:2} (${whatsapp_number:2:2}) ${whatsapp_number:4:1} ${whatsapp_number:5:4}-${whatsapp_number:9:4}"
-            
+    echo ""
+    read -p "Deseja configurar WhatsApp agora? (s/n): " configure_now
+    
+    if [[ $configure_now == "s" || $configure_now == "S" || $configure_now == "sim" ]]; then
+        while true; do
             echo ""
-            success "Número válido: $formatted_number"
-            read -p "Confirma este número? (s/n): " confirm
+            read -p "📞 Digite o número do WhatsApp (ex: 11999887766): " whatsapp_number
             
-            if [[ $confirm == "s" || $confirm == "S" || $confirm == "sim" ]]; then
-                # Salvar configuração
-                cat > ligai-config.json << EOF
+            # Validação simples do número
+            if [[ $whatsapp_number =~ ^[0-9]{10,11}$ ]]; then
+                # Adicionar código do Brasil se necessário
+                if [[ ${#whatsapp_number} == 11 ]]; then
+                    whatsapp_number="55$whatsapp_number"
+                fi
+                
+                # Formatar para exibição
+                formatted_number="+${whatsapp_number:0:2} (${whatsapp_number:2:2}) ${whatsapp_number:4:1} ${whatsapp_number:5:4}-${whatsapp_number:9:4}"
+                
+                echo ""
+                success "Número válido: $formatted_number"
+                read -p "Confirma este número? (s/n): " confirm
+                
+                if [[ $confirm == "s" || $confirm == "S" || $confirm == "sim" ]]; then
+                    # Salvar configuração
+                    cat > ligai-config.json << EOF
 {
   "whatsappNumber": "$whatsapp_number",
   "installedAt": "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")",
   "version": "1.0.0"
 }
 EOF
-                success "Configuração do WhatsApp salva!"
-                break
+                    success "Configuração do WhatsApp salva!"
+                    break
+                fi
+            else
+                echo -e "${RED}❌ Número inválido! Use formato: 11999887766${NC}"
             fi
-        else
-            error "Número inválido! Use formato: 11999887766"
-        fi
-    done
+        done
+    else
+        success "WhatsApp será configurado via painel admin!"
+        # Criar arquivo de configuração básico
+        cat > ligai-config.json << EOF
+{
+  "whatsappNumber": "",
+  "installedAt": "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")",
+  "version": "1.0.0",
+  "configureViaAdmin": true
+}
+EOF
+    fi
 }
 
 # Finalizar instalação
@@ -195,19 +212,19 @@ show_success() {
     
     echo ""
     echo -e "${BOLD}🚀 Próximos passos:${NC}"
-    echo -e "   1. ${YELLOW}cd ligai-vendas${NC}"
+    echo -e "   1. ${YELLOW}cd SiteLigAi${NC}"
     echo -e "   2. ${YELLOW}npm run dev${NC}"
     echo -e "   3. Acesse: ${CYAN}http://localhost:5000${NC}"
-    echo -e "   4. Teste o botão 'Teste Grátis'"
+    echo ""
+    echo -e "${BOLD}📱 Configure o WhatsApp:${NC}"
+    echo -e "   ${CYAN}http://localhost:5000/admin${NC} ${YELLOW}← IMPORTANTE!${NC}"
+    echo -e "   Configure seu número para ativar o botão 'Teste Grátis'"
     echo ""
     echo -e "${BOLD}💡 Recursos disponíveis:${NC}"
-    echo -e "   ✅ Integração WhatsApp"
+    echo -e "   ✅ Integração WhatsApp (configure via admin)"
     echo -e "   ✅ IA Vendedor 24/7"
     echo -e "   ✅ Prospecção automática"
     echo -e "   ✅ Interface responsiva"
-    echo ""
-    echo -e "${BOLD}🔧 Administração:${NC}"
-    echo -e "   Painel admin: ${CYAN}http://localhost:5000/admin${NC}"
     echo ""
     echo -e "${YELLOW}🎉 LigAI - Vendas instalado com sucesso!${NC}"
 }

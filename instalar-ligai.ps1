@@ -125,46 +125,64 @@ function Set-Database {
     }
 }
 
-# Configurar WhatsApp
+# Configurar WhatsApp (opcional - pode ser feito via admin)
 function Set-WhatsApp {
     Write-Log "📱 Configuração do WhatsApp"
-    Write-Host "Configure o número que receberá as conversas dos leads" -ForegroundColor $Yellow
+    Write-Host "Você pode configurar o WhatsApp agora ou depois via painel admin" -ForegroundColor $Yellow
+    Write-Host "Painel admin estará disponível em: http://localhost:5000/admin" -ForegroundColor $Cyan
     
-    do {
-        Write-Host ""
-        $whatsappNumber = Read-Host "📞 Digite o número do WhatsApp (ex: 11999887766)"
-        
-        # Validação simples
-        if ($whatsappNumber -match "^[0-9]{10,11}$") {
-            # Adicionar código do Brasil se necessário
-            if ($whatsappNumber.Length -eq 11) {
-                $whatsappNumber = "55" + $whatsappNumber
-            }
-            
-            # Formatar para exibição
-            $formatted = "+{0} ({1}) {2} {3}-{4}" -f $whatsappNumber.Substring(0,2), $whatsappNumber.Substring(2,2), $whatsappNumber.Substring(4,1), $whatsappNumber.Substring(5,4), $whatsappNumber.Substring(9,4)
-            
+    Write-Host ""
+    $configureNow = Read-Host "Deseja configurar WhatsApp agora? (s/n)"
+    
+    if ($configureNow -match "^(s|S|sim)$") {
+        do {
             Write-Host ""
-            Write-Success "Número válido: $formatted"
-            $confirm = Read-Host "Confirma este número? (s/n)"
+            $whatsappNumber = Read-Host "📞 Digite o número do WhatsApp (ex: 11999887766)"
             
-            if ($confirm -match "^(s|S|sim)$") {
-                # Salvar configuração
-                $config = @{
-                    whatsappNumber = $whatsappNumber
-                    installedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-                    version = "1.0.0"
-                } | ConvertTo-Json
+            # Validação simples
+            if ($whatsappNumber -match "^[0-9]{10,11}$") {
+                # Adicionar código do Brasil se necessário
+                if ($whatsappNumber.Length -eq 11) {
+                    $whatsappNumber = "55" + $whatsappNumber
+                }
                 
-                $config | Out-File -FilePath "ligai-config.json" -Encoding UTF8
-                Write-Success "Configuração do WhatsApp salva!"
-                break
+                # Formatar para exibição
+                $formatted = "+{0} ({1}) {2} {3}-{4}" -f $whatsappNumber.Substring(0,2), $whatsappNumber.Substring(2,2), $whatsappNumber.Substring(4,1), $whatsappNumber.Substring(5,4), $whatsappNumber.Substring(9,4)
+                
+                Write-Host ""
+                Write-Success "Número válido: $formatted"
+                $confirm = Read-Host "Confirma este número? (s/n)"
+                
+                if ($confirm -match "^(s|S|sim)$") {
+                    # Salvar configuração
+                    $config = @{
+                        whatsappNumber = $whatsappNumber
+                        installedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+                        version = "1.0.0"
+                    } | ConvertTo-Json
+                    
+                    $config | Out-File -FilePath "ligai-config.json" -Encoding UTF8
+                    Write-Success "Configuração do WhatsApp salva!"
+                    break
+                }
             }
-        }
-        else {
-            Write-Error "Número inválido! Use formato: 11999887766"
-        }
-    } while ($true)
+            else {
+                Write-Host "❌ Número inválido! Use formato: 11999887766" -ForegroundColor $Red
+            }
+        } while ($true)
+    }
+    else {
+        Write-Success "WhatsApp será configurado via painel admin!"
+        # Criar arquivo de configuração básico
+        $config = @{
+            whatsappNumber = ""
+            installedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+            version = "1.0.0"
+            configureViaAdmin = $true
+        } | ConvertTo-Json
+        
+        $config | Out-File -FilePath "ligai-config.json" -Encoding UTF8
+    }
 }
 
 # Finalizar instalação
