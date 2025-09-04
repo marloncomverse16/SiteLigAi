@@ -106,6 +106,15 @@ install_dependencies() {
     # Instalar dependências npm
     if [ -f "package.json" ]; then
         npm install
+        
+        # Verificar se tsx está disponível, se não, instalar globalmente
+        if ! command -v tsx &> /dev/null && ! npx tsx --version &> /dev/null 2>&1; then
+            log "📦 Instalando TSX globalmente..."
+            npm install -g tsx 2>/dev/null || {
+                log "🔧 TSX será usado via npx..."
+            }
+        fi
+        
         success "Dependências instaladas!"
     else
         error "package.json não encontrado!"
@@ -129,35 +138,57 @@ setup_database() {
 configure_server() {
     log "🌐 Configuração do Servidor"
     
-    # Configurar porta
-    echo -e "${YELLOW}Configure a porta do servidor (padrão: 3000)${NC}"
-    read -p "Digite a porta (ou Enter para usar 3000): " server_port
-    server_port=${server_port:-3000}
-    
-    if ! [[ "$server_port" =~ ^[0-9]+$ ]] || [ "$server_port" -lt 1024 ] || [ "$server_port" -gt 65535 ]; then
-        warning "Porta inválida, usando 3000"
-        server_port=3000
-    fi
-    
-    success "Porta configurada: $server_port"
-    
-    # Configurar domínio
-    echo ""
-    echo -e "${YELLOW}Configure seu domínio (opcional)${NC}"
-    echo -e "${CYAN}Exemplo: meusite.com, vendas.empresa.com${NC}"
-    read -p "Digite seu domínio (ou Enter para pular): " domain_name
-    
-    # Configurar SSL
-    ssl_enabled="false"
-    if [ ! -z "$domain_name" ]; then
-        echo ""
-        echo -e "${YELLOW}Configurar SSL/HTTPS? (Recomendado para produção)${NC}"
-        read -p "Ativar SSL? (s/n): " enable_ssl
+    # Verificar se está sendo executado via curl | bash
+    if [ -t 0 ]; then
+        # Terminal interativo disponível
+        echo -e "${YELLOW}Configure a porta do servidor (padrão: 3000)${NC}"
+        read -p "Digite a porta (ou Enter para usar 3000): " server_port
+        server_port=${server_port:-3000}
         
-        if [[ $enable_ssl == "s" || $enable_ssl == "S" || $enable_ssl == "sim" ]]; then
-            ssl_enabled="true"
-            success "SSL será configurado para $domain_name"
+        if ! [[ "$server_port" =~ ^[0-9]+$ ]] || [ "$server_port" -lt 1024 ] || [ "$server_port" -gt 65535 ]; then
+            warning "Porta inválida, usando 3000"
+            server_port=3000
         fi
+        
+        success "Porta configurada: $server_port"
+        
+        # Configurar domínio
+        echo ""
+        echo -e "${YELLOW}Configure seu domínio (opcional)${NC}"
+        echo -e "${CYAN}Exemplo: meusite.com, vendas.empresa.com${NC}"
+        read -p "Digite seu domínio (ou Enter para pular): " domain_name
+        
+        # Configurar SSL
+        ssl_enabled="false"
+        if [ ! -z "$domain_name" ]; then
+            echo ""
+            echo -e "${YELLOW}Configurar SSL/HTTPS? (Recomendado para produção)${NC}"
+            read -p "Ativar SSL? (s/n): " enable_ssl
+            
+            if [[ $enable_ssl == "s" || $enable_ssl == "S" || $enable_ssl == "sim" ]]; then
+                ssl_enabled="true"
+                success "SSL será configurado para $domain_name"
+            fi
+        fi
+    else
+        # Execução não-interativa (curl | bash)
+        echo -e "${YELLOW}⚠️ Modo não-interativo detectado${NC}"
+        echo -e "${CYAN}Usando configurações padrão. Para personalizar, baixe e execute o script diretamente.${NC}"
+        
+        server_port="3000"
+        domain_name=""
+        ssl_enabled="false"
+        
+        echo -e "${GREEN}📋 Configurações automáticas:${NC}"
+        echo -e "   Porta: ${CYAN}$server_port${NC}"
+        echo -e "   Modo: ${CYAN}Desenvolvimento${NC}"
+        echo -e "   SSL: ${CYAN}Desabilitado${NC}"
+        
+        echo ""
+        echo -e "${YELLOW}💡 Para configuração personalizada:${NC}"
+        echo -e "   1. ${CYAN}wget https://raw.githubusercontent.com/marloncomverse16/SiteLigAi/main/instalar-ligai.sh${NC}"
+        echo -e "   2. ${CYAN}chmod +x instalar-ligai.sh${NC}"
+        echo -e "   3. ${CYAN}./instalar-ligai.sh${NC}"
     fi
     
     # Salvar configurações do servidor
@@ -188,10 +219,20 @@ configure_whatsapp() {
         echo -e "${CYAN}Painel admin estará disponível em: http://localhost:$server_port/admin${NC}"
     fi
     
-    echo ""
-    read -p "Deseja configurar WhatsApp agora? (s/n): " configure_now
+    # Verificar se está sendo executado via curl | bash
+    if [ -t 0 ]; then
+        echo ""
+        read -p "Deseja configurar WhatsApp agora? (s/n): " configure_now
+        
+        configure_whatsapp_now="$configure_now"
+    else
+        # Modo não-interativo - pular configuração do WhatsApp
+        configure_whatsapp_now="n"
+        echo ""
+        echo -e "${YELLOW}⚠️ Modo não-interativo: WhatsApp será configurado via painel admin${NC}"
+    fi
     
-    if [[ $configure_now == "s" || $configure_now == "S" || $configure_now == "sim" ]]; then
+    if [[ $configure_whatsapp_now == "s" || $configure_whatsapp_now == "S" || $configure_whatsapp_now == "sim" ]]; then
         while true; do
             echo ""
             read -p "📞 Digite o número do WhatsApp (ex: 11999887766): " whatsapp_number
@@ -280,7 +321,7 @@ show_success() {
     
     echo ""
     echo -e "${BOLD}🚀 Próximos passos:${NC}"
-    echo -e "   1. ${YELLOW}cd SiteLigAi${NC}"
+    echo -e "   1. ${YELLOW}cd ligai-vendas${NC}"
     echo -e "   2. ${YELLOW}npm run dev${NC}"
     
     # Mostrar URL baseado na configuração
