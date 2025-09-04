@@ -86,20 +86,15 @@ download_project() {
         rm -rf "$PROJECT_NAME"
     fi
     
-    # Clone do repositório (substitua pela URL real do seu repositório)
-    # git clone https://github.com/SEU_USUARIO/ligai-vendas.git
+    # Clone do repositório do GitHub
+    git clone https://github.com/marloncomverse16/SiteLigAi.git "$PROJECT_NAME"
     
-    # Para este exemplo, vou criar uma estrutura simulada
-    # Na implementação real, use o comando git clone acima
-    
-    mkdir -p "$PROJECT_NAME"
-    cd "$PROJECT_NAME"
-    
-    success "Projeto baixado com sucesso!"
-    
-    # Simular estrutura de arquivos (remova isso quando usar git clone)
-    mkdir -p client/src server shared
-    echo '{"name": "ligai-vendas", "scripts": {"dev": "echo Starting...", "install-ligai": "node install.js"}}' > package.json
+    if [ $? -eq 0 ]; then
+        cd "$PROJECT_NAME"
+        success "Projeto baixado com sucesso!"
+    else
+        error "Falha ao baixar o projeto do GitHub!"
+    fi
     
     log "📁 Entrando no diretório do projeto..."
 }

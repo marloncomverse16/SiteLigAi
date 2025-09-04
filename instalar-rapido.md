@@ -4,18 +4,18 @@
 
 ### Linux/Mac:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/SEU_USUARIO/ligai-vendas/main/instalar-ligai.sh | bash
+curl -fsSL https://raw.githubusercontent.com/marloncomverse16/SiteLigAi/main/instalar-ligai.sh | bash
 ```
 
 ### Windows (PowerShell):
 ```powershell
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SEU_USUARIO/ligai-vendas/main/instalar-ligai.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/marloncomverse16/SiteLigAi/main/instalar-ligai.ps1'))
 ```
 
 ### Manual (qualquer sistema):
 ```bash
 # 1. Baixar scripts
-wget https://raw.githubusercontent.com/SEU_USUARIO/ligai-vendas/main/instalar-ligai.sh
+wget https://raw.githubusercontent.com/marloncomverse16/SiteLigAi/main/instalar-ligai.sh
 chmod +x instalar-ligai.sh
 ./instalar-ligai.sh
 

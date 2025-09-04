@@ -85,29 +85,15 @@ function Get-Project {
         Remove-Item -Recurse -Force $projectName
     }
     
-    # Clone do repositório (substitua pela URL real)
-    # git clone https://github.com/SEU_USUARIO/ligai-vendas.git
-    
-    # Para este exemplo, criar estrutura simulada
-    New-Item -ItemType Directory -Name $projectName
-    Set-Location $projectName
-    
-    Write-Success "Projeto baixado com sucesso!"
-    
-    # Simular estrutura (remover quando usar git clone real)
-    New-Item -ItemType Directory -Path "client\src" -Force
-    New-Item -ItemType Directory -Path "server" -Force
-    New-Item -ItemType Directory -Path "shared" -Force
-    
-    $packageJson = @{
-        name = "ligai-vendas"
-        scripts = @{
-            dev = "echo Starting..."
-            "install-ligai" = "node install.js"
-        }
-    } | ConvertTo-Json
-    
-    $packageJson | Out-File -FilePath "package.json" -Encoding UTF8
+    # Clone do repositório do GitHub
+    try {
+        git clone https://github.com/marloncomverse16/SiteLigAi.git $projectName
+        Set-Location $projectName
+        Write-Success "Projeto baixado com sucesso!"
+    }
+    catch {
+        Write-Error "Falha ao baixar o projeto do GitHub!"
+    }
     
     Write-Log "📁 Configurando projeto..."
 }
