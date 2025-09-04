@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useWhatsAppConfig, openWhatsApp } from "@/hooks/use-whatsapp";
 import logoPath from "@assets/Captura de tela 2025-04-28 170154_1753808208588.png";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { data: whatsappConfig, isLoading: isWhatsAppLoading } = useWhatsAppConfig();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,10 +91,13 @@ export default function Navigation() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button
-              onClick={() => scrollToSection("inicio")}
-              className="gradient-orange-yellow text-white px-6 py-2 rounded-lg font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300"
+              onClick={() => openWhatsApp(whatsappConfig?.whatsappUrl)}
+              disabled={isWhatsAppLoading}
+              className="gradient-orange-yellow text-white px-6 py-2 rounded-lg font-semibold hover:shadow-glow transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+              data-testid="button-teste-gratis"
             >
-              Teste Grátis
+              <MessageCircle size={16} />
+              {isWhatsAppLoading ? "Carregando..." : "Teste Grátis"}
             </Button>
           </div>
 
@@ -143,8 +148,14 @@ export default function Navigation() {
             >
               Contato
             </button>
-            <Button className="w-full mt-4 gradient-orange-yellow text-white px-6 py-2 rounded-lg font-semibold">
-              Teste Grátis
+            <Button 
+              onClick={() => openWhatsApp(whatsappConfig?.whatsappUrl)}
+              disabled={isWhatsAppLoading}
+              className="w-full mt-4 gradient-orange-yellow text-white px-6 py-2 rounded-lg font-semibold flex items-center justify-center gap-2"
+              data-testid="button-teste-gratis-mobile"
+            >
+              <MessageCircle size={16} />
+              {isWhatsAppLoading ? "Carregando..." : "Teste Grátis"}
             </Button>
           </div>
         </div>

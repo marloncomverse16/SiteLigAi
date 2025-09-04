@@ -1,4 +1,4 @@
-import { users, leads, contacts, type User, type InsertUser, type Lead, type InsertLead, type Contact, type InsertContact } from "@shared/schema";
+import { users, leads, contacts, settings, type User, type InsertUser, type Lead, type InsertLead, type Contact, type InsertContact, type Setting, type InsertSetting } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -10,6 +10,9 @@ export interface IStorage {
   createContact(contact: InsertContact): Promise<Contact>;
   getLeads(): Promise<Lead[]>;
   getContacts(): Promise<Contact[]>;
+  getSetting(key: string): Promise<Setting | undefined>;
+  setSetting(key: string, value: string): Promise<Setting>;
+  getSettings(): Promise<Setting[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -53,6 +56,35 @@ export class DatabaseStorage implements IStorage {
 
   async getContacts(): Promise<Contact[]> {
     return await db.select().from(contacts).orderBy(contacts.createdAt);
+  }
+
+  async getSetting(key: string): Promise<Setting | undefined> {
+    const [setting] = await db.select().from(settings).where(eq(settings.key, key));
+    return setting || undefined;
+  }
+
+  async setSetting(key: string, value: string): Promise<Setting> {
+    // Tenta atualizar primeiro, se não existir, insere
+    const existing = await this.getSetting(key);
+    
+    if (existing) {
+      const [updated] = await db
+        .update(settings)
+        .set({ value, updatedAt: new Date() })
+        .where(eq(settings.key, key))
+        .returning();
+      return updated;
+    } else {
+      const [created] = await db
+        .insert(settings)
+        .values({ key, value })
+        .returning();
+      return created;
+    }
+  }
+
+  async getSettings(): Promise<Setting[]> {
+    return await db.select().from(settings).orderBy(settings.key);
   }
 }
 
