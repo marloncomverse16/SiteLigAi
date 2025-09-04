@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LigAI - Sistema Inteligente de Gestão Empresarial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'ligai-orange': '#FF6B35',
+                    'ligai-yellow': '#FFB830',
+                    'ligai-dark': '#2D3748',
+                    'ligai-gray': '#4A5568',
+                    'ligai-teal': '#38B2AC',
+                    'ligai-green': '#48BB78',
+                    'ligai-light': '#F7FAFC',
+                }
+            }
+        }
+    };
+    </script>
+</head>
+<body class="font-inter text-ligai-dark antialiased">
+    <!-- @COMPONENT: Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center">
+                                <i class="fas fa-brain text-white text-xl"></i>
+                            </div>
+                            <span class="ml-3 text-2xl font-bold text-ligai-dark">LigAI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#inicio" class="text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Início</a>
+                        <a href="#recursos" class="text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Recursos</a>
+                        <a href="#solucoes" class="text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Soluções</a>
+                        <a href="#depoimentos" class="text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Depoimentos</a>
+                        <a href="#contato" class="text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Contato</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <button class="bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        Teste Grátis
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-ligai-gray hover:text-ligai-orange focus:outline-none" id="mobile-menu-toggle">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+                <a href="#inicio" class="block text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Início</a>
+                <a href="#recursos" class="block text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Recursos</a>
+                <a href="#solucoes" class="block text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Soluções</a>
+                <a href="#depoimentos" class="block text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Depoimentos</a>
+                <a href="#contato" class="block text-ligai-gray hover:text-ligai-orange transition-colors duration-300 px-3 py-2 text-sm font-medium">Contato</a>
+                <button class="w-full mt-4 bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-6 py-2 rounded-lg font-semibold">
+                    Teste Grátis
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="inicio" class="pt-16 bg-gradient-to-br from-ligai-light via-white to-ligai-light min-h-screen flex items-center" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-ligai-dark leading-tight mb-6">
+                        Visão completa de sua 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-ligai-orange to-ligai-yellow">
+                            Gestão Empresarial
+                        </span>
+                        com IA
+                    </h1>
+                    <p class="text-xl text-ligai-gray leading-relaxed mb-8">
+                        Com o LigAI, você tem controle total. Acompanhe em tempo real e tome decisões inteligentes sempre que necessário.
+                    </p>
+                    
+                    <!-- Lead Form -->
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+                        <form class="grid grid-cols-1 md:grid-cols-3 gap-4" data-implementation="Should integrate with lead capture system">
+                            <input type="text" placeholder="Nome" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none" data-mock="true">
+                            <input type="email" placeholder="E-mail" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none" data-mock="true">
+                            <button type="submit" class="bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300" data-event="click:handleLeadSubmit">
+                                Teste Grátis
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <!-- Modern technology business scene with AI elements -->
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800" alt="Modern office with AI technology and business analytics" class="rounded-2xl shadow-2xl w-full h-auto" data-mock-image="true">
+                    
+                    <!-- Floating elements -->
+                    <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-ligai-green rounded-full animate-pulse"></div>
+                            <span class="text-sm font-semibold text-ligai-dark">Sistema Online</span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-chart-line text-ligai-orange text-xl"></i>
+                            <span class="text-sm font-semibold text-ligai-dark">Análise em Tempo Real</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Features Grid -->
+    <section id="recursos" class="py-20 bg-white" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ligai-dark mb-4">
+                    Recursos Principais do LigAI
+                </h2>
+                <p class="text-xl text-ligai-gray max-w-3xl mx-auto">
+                    Gerencie todos os aspectos da sua empresa com inteligência artificial avançada
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: features.map(feature => ( -->
+                <!-- Feature 1: Analytics Inteligente -->
+                <div class="bg-ligai-light p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-ligai-orange group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-pie text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ligai-dark mb-4">Analytics Inteligente</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Análise avançada de dados com IA para insights precisos sobre sua operação empresarial.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Automação de Processos -->
+                <div class="bg-ligai-light p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-ligai-orange group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ligai-dark mb-4">Automação de Processos</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Automatize tarefas repetitivas e optimize fluxos de trabalho com nossa IA avançada.
+                    </p>
+                </div>
+
+                <!-- Feature 3: Gestão Financeira -->
+                <div class="bg-ligai-light p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-ligai-orange group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-dollar-sign text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ligai-dark mb-4">Gestão Financeira</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Controle financeiro completo com previsões inteligentes e alertas automáticos.
+                    </p>
+                </div>
+
+                <!-- Feature 4: CRM Inteligente -->
+                <div class="bg-ligai-light p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-ligai-orange group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ligai-dark mb-4">CRM Inteligente</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Gestão de relacionamento com clientes potencializada por inteligência artificial.
+                    </p>
+                </div>
+
+                <!-- Feature 5: Relatórios Automáticos -->
+                <div class="bg-ligai-light p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-ligai-orange group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-file-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ligai-dark mb-4">Relatórios Automáticos</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Relatórios detalhados gerados automaticamente com insights acionáveis.
+                    </p>
+                </div>
+
+                <!-- Feature 6: Segurança Avançada -->
+                <div class="bg-ligai-light p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-ligai-orange group">
+                    <div class="w-16 h-16 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ligai-dark mb-4">Segurança Avançada</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Proteção de dados empresariais com criptografia e monitoramento contínuo.
+                    </p>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Features Grid -->
+
+    <!-- @COMPONENT: Solutions Section -->
+    <section id="solucoes" class="py-20 bg-gradient-to-br from-ligai-light to-white" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ligai-dark mb-4">
+                    Mais de 10 Módulos Integrados
+                </h2>
+                <p class="text-xl text-ligai-gray max-w-3xl mx-auto">
+                    Controle todos os aspectos da sua empresa, desde vendas até recursos humanos, com facilidade e precisão.
+                </p>
+            </div>
+
+            <!-- Solution 1: Business Intelligence -->
+            <div class="mb-20">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="mb-12 lg:mb-0">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-brain text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-ligai-dark">Business Intelligence</h3>
+                        </div>
+                        <h4 class="text-xl font-semibold text-ligai-dark mb-4">
+                            Transforme dados em decisões inteligentes
+                        </h4>
+                        <p class="text-ligai-gray leading-relaxed mb-6">
+                            O LigAI coleta e analisa dados de toda sua operação, fornecendo insights em tempo real para tomada de decisão estratégica. Com dashboards personalizáveis e relatórios automáticos.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Dashboards em tempo real personalizáveis
+                            </li>
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Análise preditiva com machine learning
+                            </li>
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Relatórios automatizados e alertas inteligentes
+                            </li>
+                        </ul>
+                        <button class="bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Teste Agora
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <!-- Business analytics dashboard image -->
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800" alt="Business analytics dashboard with charts and graphs" class="rounded-2xl shadow-2xl w-full h-auto" data-mock-image="true">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution 2: Automação de Vendas -->
+            <div class="mb-20">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <!-- Customer service technology interface -->
+                        <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800" alt="Customer service technology interface with AI chatbot" class="rounded-2xl shadow-2xl w-full h-auto" data-mock-image="true">
+                    </div>
+                    <div class="order-1 lg:order-2 mb-12 lg:mb-0">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shopping-cart text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-ligai-dark">Automação de Vendas</h3>
+                        </div>
+                        <h4 class="text-xl font-semibold text-ligai-dark mb-4">
+                            Acelere seu processo de vendas com IA
+                        </h4>
+                        <p class="text-ligai-gray leading-relaxed mb-6">
+                            Automatize follow-ups, qualifique leads e aumente conversões. O LigAI identifica oportunidades e otimiza sua estratégia de vendas automaticamente.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Lead scoring automático e inteligente
+                            </li>
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Sequências de follow-up personalizadas
+                            </li>
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Previsão de vendas com alta precisão
+                            </li>
+                        </ul>
+                        <button class="bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Conhecer Módulo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution 3: Gestão de Recursos -->
+            <div>
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="mb-12 lg:mb-0">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-cog text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-ligai-dark">Gestão de Recursos</h3>
+                        </div>
+                        <h4 class="text-xl font-semibold text-ligai-dark mb-4">
+                            Otimize recursos e reduza custos
+                        </h4>
+                        <p class="text-ligai-gray leading-relaxed mb-6">
+                            Gerencie equipes, projetos e recursos com eficiência máxima. O LigAI aloca automaticamente recursos baseado em prioridades e disponibilidade.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Alocação inteligente de recursos humanos
+                            </li>
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Controle de custos em tempo real
+                            </li>
+                            <li class="flex items-center text-ligai-gray">
+                                <i class="fas fa-check text-ligai-green mr-3"></i>
+                                Otimização automática de cronogramas
+                            </li>
+                        </ul>
+                        <button class="bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Saiba Mais
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <!-- Modern office technology and automation -->
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800" alt="Modern office technology with automation systems" class="rounded-2xl shadow-2xl w-full h-auto" data-mock-image="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Solutions Section -->
+
+    <!-- @COMPONENT: Benefits Section -->
+    <section class="py-20 bg-white" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ligai-dark mb-4">
+                    O LigAI é a solução perfeita para empresas que buscam excelência na gestão
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit 1 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-database text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ligai-dark mb-4">Colete informações estratégicas</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Ao coletar informações dos seus processos, você estará mais preparado para gerenciar sua empresa.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ligai-dark mb-4">Gerencie com eficiência</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Processos bem gerenciados reduzem custos, aumentam segurança e impulsionam a produtividade.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ligai-dark mb-4">Tome decisões assertivas</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Com informações precisas e análise objetiva, você pode tomar as melhores decisões para sua empresa.
+                    </p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ligai-dark mb-4">Evite perdas financeiras</h3>
+                    <p class="text-ligai-gray leading-relaxed">
+                        Reduza custos, aumente segurança e proteja seus dados de forma rápida e inteligente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Benefits Section -->
+
+    <!-- @COMPONENT: Testimonials Section -->
+    <section id="depoimentos" class="py-20 bg-gradient-to-br from-ligai-light to-white" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ligai-dark mb-4">
+                    O que nossos clientes dizem
+                </h2>
+                <p class="text-xl text-ligai-gray max-w-3xl mx-auto">
+                    Empresas de todos os tamanhos confiam no LigAI para transformar sua gestão
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: testimonials.map(testimonial => ( -->
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">MC</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-ligai-dark">Maria Carvalho</h4>
+                            <p class="text-ligai-gray text-sm">CEO, TechSolutions</p>
+                        </div>
+                    </div>
+                    <p class="text-ligai-gray leading-relaxed mb-4">
+                        "O LigAI revolucionou nossa gestão. Conseguimos reduzir custos em 30% e aumentar nossa produtividade significativamente."
+                    </p>
+                    <div class="flex text-ligai-yellow">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">JS</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-ligai-dark">João Silva</h4>
+                            <p class="text-ligai-gray text-sm">Diretor, InnovaGroup</p>
+                        </div>
+                    </div>
+                    <p class="text-ligai-gray leading-relaxed mb-4">
+                        "A automação inteligente do LigAI nos permitiu focar no que realmente importa: crescer nosso negócio."
+                    </p>
+                    <div class="flex text-ligai-yellow">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">AS</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-ligai-dark">Ana Santos</h4>
+                            <p class="text-ligai-gray text-sm">CFO, LogisCorp</p>
+                        </div>
+                    </div>
+                    <p class="text-ligai-gray leading-relaxed mb-4">
+                        "Os relatórios automáticos e insights do LigAI transformaram nossa tomada de decisão. Recomendo!"
+                    </p>
+                    <div class="flex text-ligai-yellow">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Testimonials Section -->
+
+    <!-- @COMPONENT: CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-ligai-orange to-ligai-yellow" data-mock="true">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Vamos Começar?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Entre em contato conosco hoje mesmo e descubra como o LigAI pode transformar sua empresa.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="bg-white text-ligai-orange px-8 py-4 rounded-lg font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                    Teste Grátis por 30 Dias
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-ligai-orange transition-all duration-300">
+                    Falar com Especialista
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CTA Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contato" class="py-20 bg-white" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-ligai-dark mb-6">
+                        Entre em Contato
+                    </h2>
+                    <p class="text-xl text-ligai-gray mb-8">
+                        Nossa equipe está pronta para ajudar você a implementar o LigAI em sua empresa.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-ligai-dark">Telefone</h4>
+                                <p class="text-ligai-gray">(11) 3456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-ligai-dark">E-mail</h4>
+                                <p class="text-ligai-gray">contato@ligai.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-ligai-dark">Endereço</h4>
+                                <p class="text-ligai-gray">São Paulo, SP - Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-ligai-light p-8 rounded-2xl">
+                    <form class="space-y-6" data-implementation="Should integrate with contact form system">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Nome" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none w-full" data-mock="true">
+                            <input type="email" placeholder="E-mail" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none w-full" data-mock="true">
+                        </div>
+                        <input type="text" placeholder="Empresa" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none w-full" data-mock="true">
+                        <input type="tel" placeholder="Telefone" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none w-full" data-mock="true">
+                        <textarea placeholder="Mensagem" rows="4" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ligai-orange focus:border-transparent outline-none w-full resize-none" data-mock="true"></textarea>
+                        <button type="submit" class="w-full bg-gradient-to-r from-ligai-orange to-ligai-yellow text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300" data-event="click:handleContactSubmit">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-ligai-dark text-white py-16" data-mock="true">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-ligai-orange to-ligai-yellow rounded-lg flex items-center justify-center">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-bold text-white">LigAI</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                        Transforme sua gestão empresarial com inteligência artificial. Automatize processos, otimize recursos e tome decisões mais inteligentes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-ligai-gray rounded-lg flex items-center justify-center hover:bg-ligai-orange transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-ligai-gray rounded-lg flex items-center justify-center hover:bg-ligai-orange transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-ligai-gray rounded-lg flex items-center justify-center hover:bg-ligai-orange transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-ligai-gray rounded-lg flex items-center justify-center hover:bg-ligai-orange transition-colors duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Soluções</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Business Intelligence</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Automação de Vendas</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Gestão Financeira</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">CRM Inteligente</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Relatórios Automáticos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Suporte</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Documentação</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Status do Sistema</a></li>
+                        <li><a href="#" class="hover:text-ligai-orange transition-colors duration-300">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-ligai-gray mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 mb-4 md:mb-0">
+                        © 2024 LigAI. Todos os direitos reservados.
+                    </p>
+                    <div class="flex space-x-6 text-gray-300">
+                        <a href="#" class="hover:text-ligai-orange transition-colors duration-300">Política de Privacidade</a>
+                        <a href="#" class="hover:text-ligai-orange transition-colors duration-300">Termos de Uso</a>
+                        <a href="#" class="hover:text-ligai-orange transition-colors duration-300">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+    (function() {
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submissions - placeholder functions
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+            // TODO: Implement lead capture API integration
+            alert('Obrigado pelo interesse! Nossa equipe entrará em contato em breve.');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            // TODO: Implement contact form API integration
+            alert('Mensagem enviada com sucesso! Responderemos em breve.');
+        }
+
+        // Add event listeners to forms
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                if (this.closest('#inicio')) {
+                    handleLeadSubmit(e);
+                } else if (this.closest('#contato')) {
+                    handleContactSubmit(e);
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('backdrop-blur-md', 'bg-white/95');
+            } else {
+                nav.classList.remove('backdrop-blur-md', 'bg-white/95');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    })();
+    </script>
+
+    <style>
+    .animate-fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
+</body>
+</html>
